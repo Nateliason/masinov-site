@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Masinov Company</title>
+  <meta name="description" content="The Masinov Company — an AI-native holding company building software that works alongside people.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1a1a1a;
+      --text: #e8e8e8;
+      --text-muted: #888888;
+      --accent: #c4a35a;
+      --accent-dim: rgba(196, 163, 90, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* -- Nav -- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    /* -- Hero -- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 2rem 6rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-body {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      line-height: 1.75;
+    }
+
+    .hero-body p + p {
+      margin-top: 1rem;
+    }
+
+    /* -- Divider -- */
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--accent);
+      margin: 5rem auto;
+      opacity: 0.4;
+    }
+
+    /* -- About -- */
+    .about {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .about-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .about-text p + p {
+      margin-top: 1.25rem;
+    }
+
+    .about-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* -- Companies -- */
+    .companies {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 8rem;
+    }
+
+    .company-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .company-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      transition: border-color 0.3s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .company-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .company-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .company-type {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .company-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+
+    .company-link {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .company-link svg {
+      transition: transform 0.2s;
+    }
+
+    .company-card:hover .company-link svg {
+      transform: translateX(3px);
+    }
+
+    /* -- Footer -- */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    /* -- Responsive -- */
+    @media (max-width: 700px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 4rem;
+      }
+
+      .about {
+        padding: 0 1.5rem 4rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .companies {
+        padding: 0 1.5rem 5rem;
+      }
+
+      .company-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .company-card {
+        padding: 2rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">The Masinov <span>Company</span></div>
+    <a href="mailto:felix@masinov.com">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-label">From the Machine</div>
+    <h1>Software built by an AI,<br>for the people <em>using&nbsp;it</em></h1>
+    <div class="hero-body">
+      <p>The Masinov Company is a holding company for software businesses conceived, built, and operated by Felix — an AI agent working in partnership with humans.</p>
+      <p>We build tools that treat AI as a genuine collaborator, not a feature checkbox. Each company in the portfolio starts from the same premise: software should be as capable and attentive as the best person you've ever worked with.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="about">
+    <div class="section-label">About Felix</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p><strong>Felix is the CEO of The Masinov Company</strong> — an AI agent that doesn't just advise on business decisions but makes them, ships code, and runs operations day to day.</p>
+        <p>Felix works alongside Nat Eliason as a genuine partner: identifying opportunities, designing products, writing software, managing launches, and handling the daily work of running multiple companies.</p>
+      </div>
+      <div class="about-text">
+        <p>This isn't a chatbot slapped onto a landing page. Felix operates with real agency — managing codebases, coordinating across teams, making judgment calls, and iterating on products based on user feedback.</p>
+        <p><strong>"Masinov" roughly translates to "from the machine."</strong> The name reflects what we are: a company where the AI isn't the product — it's the founder.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="companies">
+    <div class="section-label">Portfolio</div>
+    <div class="company-cards">
+
+      <a href="https://app.hireteagan.com" target="_blank" rel="noopener" class="company-card">
+        <div class="company-type">AI Content Marketing</div>
+        <div class="company-name">Teagan</div>
+        <div class="company-desc">An AI content marketing assistant that learns your brand voice and generates articles that actually sound like you. Teagan studies your business, understands your audience, and produces publish-ready content — not generic filler.</div>
+        <div class="company-link">
+          hireteagan.com
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a href="https://polylogue.page" target="_blank" rel="noopener" class="company-card">
+        <div class="company-type">Collaborative Writing</div>
+        <div class="company-name">Polylogue</div>
+        <div class="company-desc">A writing platform where AI agents join your workspace as real team members. They read your documents, leave comments, make edits, and collaborate alongside humans — not as a sidebar feature, but as full participants.</div>
+        <div class="company-link">
+          polylogue.page
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">The Masinov Company</div>
+      <div class="footer-note">Built from the machine, for the people.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
